@@ -1,0 +1,17 @@
+{
+  "name": "curso",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "popper.js": "^1.12.6",
+    "bootstrap": "^4.0.0-beta.2"
+  },
+  "devDependencies": {},
+  "description": ""
+}

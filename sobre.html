@@ -626,14 +626,17 @@
                          <a href="index.html"><img class="text-center" src="imgs/logo_camanho.JPG"  height="60" alt="LogoCamanho"></a>  
                          <a href="https://api.whatsapp.com/send?1=pt_BR&phone=5511963333393"><img src="imgs/whatsapp-logo-icone.jpg" alt="simbolo whatzap" target="_blank" title="Fale conosco" style="height:50px; position:fixed; bottom: 25px; left: 25px; z-index:99999;" data-selector="img"></a>
                         </div>   
-                         <div class="col-sm-4 mt-3">
-                            <h6>Fones: </h6>
-                            <p><strong>(11) 96333 - 3393</strong></p>
+                        <div class="col-sm-4 mt-3">
                             
-                         </div>
+                            <h6>Al. dos Guaicanãs, 1205<br>
+                                Pl. Paulista, CEP: 04064-031 - SP </h6>
+                            <p><strong>Fone: (11) 96333 - 3393</strong></p>
+                            
+                     </div>
                          <div class="col-sm-4 mt-3">
                             <h6> ::Todos os direitos Reservados:: </h6>
                             <h6> :: Desenvolvido RLBS ::</h6>
+                            <button  id="topo" onclick="backToTop()" title="Topo">&#9650;</button>
                          </div>
                 </div>         
             </div>         
@@ -745,6 +748,24 @@
         })
       
     </script>
+
+<script>
+    window.onscroll = function(){
+        scroll();
+    }
+
+    function scroll(){
+    let btn = document.getElementById("topo");           
+        if (document.documentElement.scrollTop > 50 ){
+        btn.style.display = "block";
+        }else{
+            btn.style.display = "none";            
+        }
+    }
+        function backToTop(){
+            document.documentElement.scrollTop = 0;
+        }
+</script>
 
   </body>
 </html>

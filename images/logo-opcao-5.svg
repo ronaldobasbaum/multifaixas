@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <!-- Ícone: faixas horizontais verde/cinza escuro -->
+  <defs>
+    <linearGradient id="g5a" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2d3436;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#636e72;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="g5b" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00b894;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#55efc4;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="14" width="40" height="10" rx="5" fill="url(#g5a)"/>
+  <rect x="4" y="28" width="40" height="10" rx="5" fill="url(#g5b)"/>
+  <rect x="4" y="42" width="40" height="10" rx="5" fill="url(#g5a)"/>
+  <rect x="4" y="56" width="28" height="10" rx="5" fill="url(#g5b)" opacity="0.6"/>
+  <!-- Texto -->
+  <text x="56" y="38" font-family="'Poppins', 'Arial Black', sans-serif" font-weight="800" font-size="28" fill="#2d3436">MULTI</text>
+  <text x="162" y="38" font-family="'Poppins', 'Arial Black', sans-serif" font-weight="800" font-size="28" fill="#00b894">FAIXAS</text>
+  <line x1="56" y1="44" x2="262" y2="44" stroke="#00b894" stroke-width="1.5" opacity="0.3"/>
+  <!-- Subtítulo -->
+  <text x="56" y="58" font-family="'Inter', 'Arial', sans-serif" font-weight="400" font-size="11" fill="#888" letter-spacing="3">FAIXAS DECORATIVAS</text>
+</svg>

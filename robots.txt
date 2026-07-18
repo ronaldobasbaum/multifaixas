@@ -1,0 +1,39 @@
+# Robots.txt - Multifaixas
+# https://www.multifaixas.com.br/robots.txt
+
+# Permite acesso de todos os bots de busca
+User-agent: *
+Allow: /
+
+# Bloqueia áreas administrativas e privadas (se houver)
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+
+# Permite acesso às imagens e CSS/JS para melhor indexação
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+# Sitemap
+Sitemap: https://www.multifaixas.com.br/sitemap.xml
+
+# Crawl-delay (opcional - apenas se necessário)
+# Crawl-delay: 1
+
+# Bots específicos (exemplos)
+# GoogleBot
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Bloquear bots maliciosos (opcional)
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: AhrefsBot
+Crawl-delay: 10

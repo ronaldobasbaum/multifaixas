@@ -1,0 +1,458 @@
+/* ============================
+   Multifaixas - Custom Styles
+   ============================ */
+
+/* --- Variáveis de cor --- */
+:root {
+  --cor-primaria: #6c5ce7;
+  --cor-primaria-escura: #5a4bd1;
+  --cor-destaque: #fd79a8;
+  --cor-destaque-hover: #e8608e;
+  --cor-texto: #2d3436;
+  --cor-texto-claro: #636e72;
+  --cor-fundo-claro: #f8f9fa;
+  --cor-borda: #e0e0e0;
+  --sombra-card: 0 2px 12px rgba(108,92,231,0.08);
+  --sombra-card-hover: 0 8px 30px rgba(108,92,231,0.18);
+  --radius: 10px;
+}
+
+/* --- Reset e base --- */
+html, body {
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+/* --- Tipografia --- */
+h1, h2, h3, h4, h5 {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+h1 {
+  color: var(--cor-primaria);
+  font-size: 1.8rem;
+}
+
+h2 {
+  color: var(--cor-primaria-escura);
+  font-size: 1.6rem;
+}
+
+h3 {
+  color: var(--cor-texto);
+  font-size: 1.4rem;
+}
+
+h4 {
+  color: var(--cor-primaria);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--cor-texto-claro);
+}
+
+/* --- Navbar --- */
+.navbar {
+  padding: 0.6rem 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.bg-primary,
+.bg-gradient-primary {
+  background: var(--cor-primaria) !important;
+}
+
+.dropdown-menu.bg-primary {
+  background: var(--cor-primaria-escura) !important;
+}
+
+.dropdown-menu.bg-primary .dropdown-item {
+  color: #fff !important;
+}
+
+.dropdown-menu.bg-primary .dropdown-item:hover {
+  background: rgba(255,255,255,0.15) !important;
+  color: #fff !important;
+}
+
+.navbar-brand img {
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+  transform: scale(1.05);
+}
+
+.dropdown-menu {
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--sombra-card);
+}
+
+.dropdown-item {
+  border-radius: 6px;
+  transition: background 0.2s ease, padding-left 0.2s ease;
+}
+
+.dropdown-item:hover {
+  padding-left: 1.5rem;
+}
+
+/* --- Jumbotron --- */
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e8ecf1 100%);
+  border-radius: 0;
+}
+
+/* Jumbotron com carousel (home) */
+.jumbotron:has(.carousel) {
+  padding: 0;
+  background: #000;
+}
+
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition-duration: .6s;
+  transition-property: opacity;
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+  opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+  opacity: 0;
+}
+
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-prev {
+  transform: translateX(0);
+  transform: translate3d(0, 0, 0);
+}
+
+.carousel-caption h1 {
+  color: #ffe900;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.carousel-caption p {
+  color: #17d8b2;
+  font-size: 20px;
+  font-weight: 600;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+}
+
+/* --- Cards de produto --- */
+.card {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--radius);
+  box-shadow: var(--sombra-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-card-hover);
+}
+
+.card-body {
+  padding: 1.2rem;
+}
+
+.card-body:hover {
+  background: rgba(0, 86, 179, 0.04);
+  transition: background 0.3s ease;
+}
+
+.card-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.card-img-top {
+  border-radius: 6px;
+  transition: transform 0.4s ease;
+}
+
+.card-img-top:hover {
+  transform: scale(1.03);
+}
+
+/* --- Gallery --- */
+.gallery {
+  display: flex;
+  justify-content: center;
+}
+
+.gallery img {
+  transition: transform 0.4s ease, filter 0.4s ease;
+  border-radius: 6px;
+}
+
+.gallery img:hover {
+  filter: grayscale(0) brightness(1.05);
+  transform: scale(1.05);
+}
+
+.gallery-block {
+  padding-bottom: 60px;
+  padding-top: 60px;
+}
+
+.gallery-block .heading {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.gallery-block .heading h2 {
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.gallery-block.compact-gallery .item {
+  overflow: hidden;
+  margin-bottom: 0;
+  opacity: 1;
+}
+
+.card-body .gallery {
+  justify-content: center;
+  text-align: center;
+}
+
+/* --- Ficha Técnica --- */
+.card-body h6 {
+  line-height: 1.8;
+}
+
+.card-body h6 small {
+  font-size: 0.85rem;
+}
+
+/* --- Seção de logos das marcas --- */
+.display-5 img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(20%);
+}
+
+.display-5 img:hover {
+  transform: scale(1.08);
+  filter: grayscale(0%);
+}
+
+/* --- Alert / Seções de destaque --- */
+.alert-secondary {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+  border: none;
+  border-radius: var(--radius);
+}
+
+/* --- Contato iframe --- */
+#contato .col-xs-12 iframe {
+  width: 100%;
+  display: block;
+}
+
+.scrollspySite {
+  position: relative;
+  overflow: auto;
+  height: 345px;
+}
+
+/* --- Footer --- */
+.alert-info {
+  background: #2d3436 !important;
+  color: #e0e0e0 !important;
+  border: none !important;
+  border-radius: 0;
+  padding: 2.5rem 1rem;
+}
+
+.alert-info p {
+  color: #e0e0e0 !important;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.alert-info strong {
+  color: #fff !important;
+  font-weight: 700;
+}
+
+.alert-info small {
+  color: #b0b0b0 !important;
+}
+
+.alert-info a {
+  color: #fd79a8 !important;
+}
+
+.alert-info a:hover {
+  color: #fff !important;
+}
+
+/* --- Botão Voltar ao Topo --- */
+#topo {
+  text-decoration: none;
+  color: white;
+  background: var(--cor-destaque);
+  border: none;
+  padding: 12px 16px;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 99999;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+  display: none;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#topo:hover {
+  background: var(--cor-destaque-hover);
+  transform: scale(1.1);
+}
+
+/* --- Botão WhatsApp flutuante --- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  left: 20px;
+  z-index: 99999;
+  display: block;
+}
+
+.whatsapp-float img {
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+}
+
+/* --- Botões de ação --- */
+.btn-outline-info {
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-info:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(23, 162, 184, 0.3);
+}
+
+/* --- Carousel Parceiros: altura uniforme --- */
+#carouselParceiros .carousel-item img {
+  max-height: 100px;
+  width: auto !important;
+  object-fit: contain;
+}
+
+/* --- Footer Menu links --- */
+.navbar-nav .nav-link.bg-primary {
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.navbar-nav .nav-link.bg-primary:hover {
+  opacity: 0.9;
+  transform: translateX(4px);
+}
+
+/* --- Social buttons no footer --- */
+.btn-group-vertical .btn {
+  border-radius: 8px !important;
+  margin-bottom: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-group-vertical .btn:hover {
+  transform: translateX(4px);
+}
+
+/* --- Responsividade --- */
+@media (max-width: 640px) {
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.3rem; }
+
+  /* Esconder carousel principal no mobile */
+  .jumbotron:has(.carousel) {
+    display: none;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  #topo {
+    right: 12px;
+    bottom: 25px;
+    padding: 10px 13px;
+    font-size: 14px;
+  }
+
+  .whatsapp-float {
+    bottom: 25px;
+    left: 12px;
+    right: auto;
+  }
+
+  .whatsapp-float img {
+    height: 44px;
+    width: 44px;
+  }
+}
+
+@media (max-width: 400px) {
+  #topo {
+    right: 10px;
+    bottom: 20px;
+    padding: 8px 11px;
+    font-size: 13px;
+  }
+
+  .whatsapp-float {
+    bottom: 20px;
+    left: 10px;
+    right: auto;
+  }
+
+  .whatsapp-float img {
+    height: 40px;
+    width: 40px;
+  }
+}

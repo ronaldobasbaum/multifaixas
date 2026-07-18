@@ -1,0 +1,239 @@
+# ===================================
+# MULTIFAIXAS - Configurações Apache
+# .htaccess - Performance e Segurança
+# ===================================
+
+# Habilita mod_rewrite
+RewriteEngine On
+
+# ===================================
+# REDIRECIONAMENTOS
+# ===================================
+
+# Força HTTPS (SSL) - IMPORTANTE PARA SEO
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove www (ou adicione se preferir com www)
+# Para REMOVER www:
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Para ADICIONAR www (comente o bloco acima e descomente abaixo):
+# RewriteCond %{HTTP_HOST} !^www\. [NC]
+# RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+# ===================================
+# COMPRESSÃO GZIP
+# ===================================
+<IfModule mod_deflate.c>
+    # Comprime HTML, CSS, JavaScript, Text, XML e fontes
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE application/x-font
+    AddOutputFilterByType DEFLATE application/x-font-opentype
+    AddOutputFilterByType DEFLATE application/x-font-otf
+    AddOutputFilterByType DEFLATE application/x-font-truetype
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/otf
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE font/woff
+    AddOutputFilterByType DEFLATE font/woff2
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE image/x-icon
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    
+    # Remove browser bugs
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    Header append Vary User-Agent
+</IfModule>
+
+# ===================================
+# CACHE DO NAVEGADOR
+# ===================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    
+    # Imagens - Cache por 1 ano
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # CSS e JavaScript - Cache por 1 mês
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # Fontes - Cache por 1 ano
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/x-font-ttf "access plus 1 year"
+    
+    # HTML - Sem cache
+    ExpiresByType text/html "access plus 0 seconds"
+    
+    # PDF e documentos
+    ExpiresByType application/pdf "access plus 1 month"
+</IfModule>
+
+# Cache-Control Headers
+<IfModule mod_headers.c>
+    # Imagens
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+    
+    # CSS e JS
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
+    
+    # Fontes
+    <FilesMatch "\.(ttf|otf|woff|woff2)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+    
+    # HTML - sem cache
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires 0
+    </FilesMatch>
+</IfModule>
+
+# ===================================
+# SEGURANÇA
+# ===================================
+
+# Desabilita listagem de diretórios
+Options -Indexes
+
+# Proteção de arquivos importantes
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Bloqueia acesso a arquivos sensíveis
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|bak|config)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Headers de segurança
+<IfModule mod_headers.c>
+    # Proteção contra clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Proteção XSS
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Previne MIME type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Content Security Policy (básico)
+    # Ajuste conforme necessário para seu site
+    # Header always set Content-Security-Policy "default-src 'self' https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline';"
+</IfModule>
+
+# ===================================
+# PÁGINAS DE ERRO PERSONALIZADAS
+# ===================================
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+ErrorDocument 403 /403.html
+
+# ===================================
+# OTIMIZAÇÃO DE PERFORMANCE
+# ===================================
+
+# Remove ETags (melhora cache)
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+FileETag None
+
+# Habilita Keep-Alive
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
+
+# ===================================
+# MIME TYPES
+# ===================================
+<IfModule mod_mime.c>
+    # Fontes
+    AddType font/ttf .ttf
+    AddType font/otf .otf
+    AddType font/woff .woff
+    AddType font/woff2 .woff2
+    
+    # Imagens
+    AddType image/webp .webp
+    AddType image/svg+xml .svg .svgz
+    
+    # JavaScript
+    AddType application/javascript .js
+    
+    # CSS
+    AddType text/css .css
+</IfModule>
+
+# ===================================
+# REDIRECIONAMENTO DE PÁGINAS
+# (Adicione aqui redirecionamentos específicos)
+# ===================================
+
+# Exemplo: Redirecionar página antiga para nova
+# Redirect 301 /pagina-antiga.html /pagina-nova.html
+
+# ===================================
+# PROTEÇÃO CONTRA HOTLINKING
+# (Previne que outros sites usem suas imagens)
+# ===================================
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https://(www\.)?multifaixas\.com\.br [NC]
+RewriteCond %{REQUEST_URI} !^/images/logo-multifaixas.*$ [NC]
+# RewriteRule \.(jpg|jpeg|png|gif)$ - [F,NC,L]
+# Descomente a linha acima para ativar proteção hotlink
+
+# ===================================
+# CHARSET
+# ===================================
+AddDefaultCharset UTF-8
+<IfModule mod_mime.c>
+    AddCharset UTF-8 .html .css .js .xml .json .rss .atom
+</IfModule>
+
+# ===================================
+# LIMITAR TAMANHO DE UPLOAD
+# (Se necessário para formulários)
+# ===================================
+# php_value upload_max_filesize 10M
+# php_value post_max_size 10M
+
+# ===================================
+# FIM DAS CONFIGURAÇÕES
+# ===================================

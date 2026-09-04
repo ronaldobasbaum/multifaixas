@@ -7,9 +7,17 @@
     <!-- Homepage -->
     <url>
         <loc>https://www.multifaixas.com.br/</loc>
-        <lastmod>2026-03-21</lastmod>
+        <lastmod>2026-09-04</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+    </url>
+
+    <!-- Queima de Estoque -->
+    <url>
+        <loc>https://www.multifaixas.com.br/queima-de-estoque.html</loc>
+        <lastmod>2026-09-04</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
     </url>
 
     <!-- Página Empresa -->

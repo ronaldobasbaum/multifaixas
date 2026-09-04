@@ -45,7 +45,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/style.css?v=5">
+    <link rel="stylesheet" type="text/css" href="css/style.css?v=8">
     <link rel="stylesheet" type="text/css" href="css/lightbox.min.css">
     
     
@@ -59,9 +59,15 @@
         <div class="container">
             <a class="navbar-brand mb-0" href="index.html"><img src="images/logo-multifaixas.svg" width="160" alt="logo Multifaixas" title="Página Home"></a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <button class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSite"
+        aria-controls="navbarSite"
+        aria-expanded="false"
+        aria-label="Abrir menu">
+    <span class="navbar-toggler-icon" aria-hidden="true"></span>
+</button>
 
             <div class="collapse navbar-collapse" id="navbarSite">
                 <ul class="navbar-nav mr-auto">
@@ -101,6 +107,9 @@
                         </div>
                     </li>    
                     <li class="nav-item">
+                        <a class="nav-link font-weight-bold" href="queima-de-estoque.html">Queima de estoque</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link font-weight-bold" href="contato.html">Contato</a>
                     </li>
                 </ul>
@@ -112,7 +121,7 @@
                         <div class="dropdown-menu bg-gradient-primary">
                             <a class="dropdown-item" href="#">Facebook</a>
                             <a class="dropdown-item" href="#">Twitter</a>
-                            <a class="dropdown-item" href="https://instagram.com/multifaixas" target="_blank">Instagram</a>
+                            <a class="dropdown-item" href="https://instagram.com/multifaixas" target="_blank"   rel="noopener">Instagram</a>
                         </div>
                     </li>
                 </ul>
@@ -207,21 +216,27 @@
     </div>
     <!-- Fim container carousel-->
 
+    <a class="queima-balao" href="queima-de-estoque.html" aria-label="Conheça os produtos da queima de estoque">
+        <span class="queima-balao-selo">Estoque limitado</span>
+        <strong>Queima de estoque</strong>
+        <small>Clique e confira</small>
+    </a>
+
     <!-- inicio container areas-->
     <div class="container">
         <div class="row my-1 d-block text-center d-none d-md-block">
             <img loading="lazy" src="images/texto-multi.fw.png" width="400" alt="imagem Frase Multifaixas" title=" MultiFaixas"/>
-            <h2><strong>Faixas Decorativas</strong></h2>
+            <h1 class="h2"><strong>Faixas Decorativas</strong></h1>
         </div>
         <div class="row my-3">            
             <div class="col-sm-12 col-md-4 text-center">
-                <p class="display-5"><a href="gabriella-linha-2000.html"><img loading="lazy" src="images/logo-gabriella.jpg" width="154" title="Página Gabriella"></a></p>
+                <p class="display-5"><a href="gabriella-linha-2000.html"><img loading="lazy" src="images/logo-gabriella.jpg" width="154" alt="Gabriella" title="Página Gabriella"></a></p>
             </div>
             <div class="col-sm-12 col-md-4 text-center">
-                <p class="display-5 "><a href="finarte-linha-brilhante-flecha.html"><img loading="lazy" src="images/logo-finart.jpg" width="154" height="60" title="Página Finarte"></a></p>
+                <p class="display-5 "><a href="finarte-linha-brilhante-flecha.html"><img loading="lazy" src="images/logo-finart.jpg" width="154" height="60" alt="Finarte" title="Página Finarte"></a></p>
             </div>
             <div class="col-sm-12 col-md-4 text-center">
-                <p class="display-5"><a href="gisele-linha-gs.html"><img loading="lazy" src="images/logo-gisele-3.jpg"  height="60" title="Página Giseli"></a></p>
+                <p class="display-5"><a href="gisele-linha-gs.html"><img loading="lazy" src="images/logo-gisele-3.jpg"  height="60" alt="Gisele" title="Página Giseli"></a></p>
             </div>
         </div>
     </div><!-- fim container areas 1-->
@@ -287,7 +302,7 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h4 class="card-title">Números</h4>
-                            <a href="gabriella-linha-revestimentos.html#numeros"><img loading="lazy" class="card-img-top" src="images/gabriella/HDN 00.JPG" height="300" alt="imagem números" title="Números"></a>
+                            <a href="gabriella-linha-revestimentos.html#numeros"><img loading="lazy" class="card-img-top imagem-numeros" src="images/gabriella/HDN 00.JPG" alt="Número decorativo Gabriella" title="Números"></a>
                         </div>
                     </div>
                 </div><!-- fim col 6-->
@@ -384,6 +399,9 @@
                         </div>
                         </li>                        
                         <li class="nav-item">
+                            <a class="nav-link font-weight-bold bg-primary text-white mb-1" href="queima-de-estoque.html">Queima de estoque</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link font-weight-bold bg-primary text-white mb-1" href="contato.html">Contato</a>
                         </li>
                     </ul>
@@ -398,7 +416,12 @@
                 <div class="btn-group-vertical btn-block btn-group-lg text-center mt-2" role="group">
                     <a class="btn btn-outline-primary" href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</a>
                     <a class="btn btn-outline-info" href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a>
-                    <a class="btn btn-outline-warning" href="https://instagram.com/multifaixas" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a><br>
+                    <a class="btn btn-outline-warning"
+   href="https://instagram.com/multifaixas"
+   target="_blank"
+   rel="noopener">
+    <i class="fa fa-instagram" aria-hidden="true"></i> Instagram
+</a><br>
                 </div>                
 
             </div><!--FIM CLASS Social-->
@@ -487,7 +510,7 @@
 
 <!-- Botões flutuantes -->
 <button id="topo" onclick="backToTop()" title="Voltar ao topo">&#9650;</button>
-<a href="https://api.whatsapp.com/send?phone=5511985676176&text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20faixas%20decorativas." target="_blank" title="Fale conosco pelo WhatsApp" class="whatsapp-float"><img src="images/whatsapp-logo-icone.jpg" alt="WhatsApp"></a>
+<a href="https://api.whatsapp.com/send?phone=5511985676176&text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20faixas%20decorativas." target="_blank" rel="noopener" title="Fale conosco pelo WhatsApp" class="whatsapp-float"><img src="images/whatsapp-logo-icone.jpg" alt="WhatsApp"></a>
 
 </body>
 
